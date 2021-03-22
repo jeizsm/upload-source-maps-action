@@ -1,0 +1,27 @@
+# action.yml
+name: 'Upload source maps to Bugsnag'
+description: 'Upload source maps to Bugsnag'
+inputs:
+  api-key:
+    description: 'Api key'
+    required: true
+  app-version:
+    description: 'App version'
+    required: true
+  base-url:
+    description: 'Base url'
+    required: true
+  directory:
+    description: 'Directory'
+    required: true
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.api-key }}
+    - ${{ inputs.app-version }}
+    - ${{ inputs.base-url }}
+    - ${{ inputs.directory }}
