@@ -14,7 +14,7 @@ inputs:
     required: true
   base-url:
     description: 'Base url'
-    required: true
+    required: false
   directory:
     description: 'Directory'
     required: true
