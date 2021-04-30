@@ -2,6 +2,10 @@
 name: 'Upload source maps to Bugsnag'
 description: 'Upload source maps to Bugsnag'
 inputs:
+  upload:
+    description: 'upload browser or server'
+    required: true
+    default: 'upload-browser'
   api-key:
     description: 'Api key'
     required: true
@@ -14,13 +18,11 @@ inputs:
   directory:
     description: 'Directory'
     required: true
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.upload }}
     - ${{ inputs.api-key }}
     - ${{ inputs.app-version }}
     - ${{ inputs.base-url }}
